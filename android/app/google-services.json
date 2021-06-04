@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "278659245992",
+    "project_id": "tu-van-hoa-sen-flutter",
+    "storage_bucket": "tu-van-hoa-sen-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278659245992:android:3646849ae240c70cc99f9d",
+        "android_client_info": {
+          "package_name": "com.example.flutterhoasen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278659245992-5266iq61elrev8rrp44807v7g8omtton.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyuZyqTseT--XhXrI7eL-Jw_RN7CBDf0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278659245992-5266iq61elrev8rrp44807v7g8omtton.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
