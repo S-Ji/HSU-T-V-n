@@ -6,6 +6,7 @@ class DangKy {
   String sdt;
   String diachi;
   String dangky;
+  String sender;
   Timestamp createdAt;
   Timestamp updatedAt;
   DangKy();
@@ -14,6 +15,7 @@ class DangKy {
     name = data['name'];
     diachi = data['diachi'];
     dangky = data['dangky'];
+    sender = data['sender'];
     sdt = data['sdt'];
     createdAt = data['createdAt'];
     updatedAt = data['updatedAt'];
@@ -25,6 +27,7 @@ class DangKy {
       'diachi': diachi,
       'dangky': dangky,
       'sdt': sdt,
+      'sender': sender,
       'createdAt': createdAt,
       'updatedAt': updatedAt
     };

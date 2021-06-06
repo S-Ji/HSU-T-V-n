@@ -4,11 +4,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutterhoasen/model/DangKy.dart';
 import '../constants.dart';
 import 'package:flutterhoasen/screens/dangky_page.dart';
-import 'package:flutterhoasen/api/DangKy_api.dart';
 import 'package:flutterhoasen/notifiel/DangKyNotifiel.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 final _firestore = FirebaseFirestore.instance;
+User loggedInUser;
 
 class FormDangKyPage extends StatefulWidget {
   static const String id = 'formDangKyPage_screen';
@@ -17,6 +18,7 @@ class FormDangKyPage extends StatefulWidget {
 }
 
 class _FormDangKyPageState extends State<FormDangKyPage> {
+  final _auth = FirebaseAuth.instance;
   final nameTextController = TextEditingController();
   final diachiTextController = TextEditingController();
   final sdtTextController = TextEditingController();
@@ -27,6 +29,17 @@ class _FormDangKyPageState extends State<FormDangKyPage> {
   String diachi;
   String sdt;
   String dangky;
+  void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if (user != null) {
+        loggedInUser = user;
+        print(loggedInUser.email);
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   void initState() {
@@ -38,6 +51,7 @@ class _FormDangKyPageState extends State<FormDangKyPage> {
     } else {
       _currentRegis = DangKy();
     }
+    getCurrentUser();
     super.initState();
   }
   //
@@ -153,6 +167,7 @@ class _FormDangKyPageState extends State<FormDangKyPage> {
                       'diachi': diachi,
                       'sdt': sdt,
                       'dangky': dangky,
+                      'sender': loggedInUser.email,
                       'created_at': FieldValue.serverTimestamp(),
                     });
                     // _saveRegis();
