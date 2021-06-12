@@ -78,6 +78,17 @@ class _FormDangKyPageState extends State<FormDangKyPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Đăng ký tuyển sinh',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ]),
+              ),
               TextFormField(
                 controller: nameTextController,
                 textAlign: TextAlign.center,
