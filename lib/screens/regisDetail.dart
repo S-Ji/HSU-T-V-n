@@ -79,6 +79,12 @@ class RegisDetailPage extends StatelessWidget {
                               .collection('forms')
                               .where("name",
                                   isEqualTo: dangKyNotifier.currentRegis.name)
+                              .where("dangky",
+                                  isEqualTo: dangKyNotifier.currentRegis.dangky)
+                              .where("sdt",
+                                  isEqualTo: dangKyNotifier.currentRegis.sdt)
+                              .where("diachi",
+                                  isEqualTo: dangKyNotifier.currentRegis.diachi)
                               .get()
                               .then((value) {
                             value.docs.forEach((element) {
