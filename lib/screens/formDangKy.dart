@@ -162,36 +162,40 @@ class _FormDangKyPageState extends State<FormDangKyPage> {
               SizedBox(
                 height: 24.0,
               ),
-              RoundedButton(
-                title: 'Xác nhận',
-                colour: Colors.lightBlueAccent,
-                onPressed: () {
-                  if (!_formKey.currentState.validate()) {
-                    return;
-                  } else {
-                    nameTextController.clear();
-                    diachiTextController.clear();
-                    sdtTextController.clear();
-                    dangkyTextController.clear();
-                    _firestore.collection('forms').add({
-                      'name': name,
-                      'diachi': diachi,
-                      'sdt': sdt,
-                      'dangky': dangky,
-                      'sender': loggedInUser.email,
-                      'created_at': FieldValue.serverTimestamp(),
-                    });
-                    // _saveRegis();
-                    Navigator.pushNamed(context, DangKyPage.id);
-                  }
-                },
+              Flexible(
+                child: RoundedButton(
+                  title: 'Xác nhận',
+                  colour: Colors.lightBlueAccent,
+                  onPressed: () {
+                    if (!_formKey.currentState.validate()) {
+                      return;
+                    } else {
+                      nameTextController.clear();
+                      diachiTextController.clear();
+                      sdtTextController.clear();
+                      dangkyTextController.clear();
+                      _firestore.collection('forms').add({
+                        'name': name,
+                        'diachi': diachi,
+                        'sdt': sdt,
+                        'dangky': dangky,
+                        'sender': loggedInUser.email,
+                        'created_at': FieldValue.serverTimestamp(),
+                      });
+                      // _saveRegis();
+                      Navigator.pushNamed(context, DangKyPage.id);
+                    }
+                  },
+                ),
               ),
-              RoundedButton(
-                title: 'Danh sách đăng ký',
-                colour: Colors.blueAccent,
-                onPressed: () {
-                  Navigator.pushNamed(context, DangKyPage.id);
-                },
+              Flexible(
+                child: RoundedButton(
+                  title: 'Danh sách đăng ký',
+                  colour: Colors.blueAccent,
+                  onPressed: () {
+                    Navigator.pushNamed(context, DangKyPage.id);
+                  },
+                ),
               ),
             ],
           ),
