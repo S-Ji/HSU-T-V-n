@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutterhoasen/components/rounded_button.dart';
 import 'package:flutterhoasen/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutterhoasen/screens/chat_screen.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'navigator.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static const String id = 'registration_screen';
@@ -13,6 +13,7 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  AudioCache audioCache = AudioCache();
   final _auth = FirebaseAuth.instance;
   bool showSpinner = false;
   String email;
@@ -68,6 +69,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 title: 'Đăng ký',
                 colour: Colors.blueAccent,
                 onPressed: () async {
+                  audioCache.load('crash.mp3');
+                  audioCache.play('crash.mp3');
                   setState(() {
                     showSpinner = true;
                   });

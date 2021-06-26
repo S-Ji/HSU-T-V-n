@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutterhoasen/api/DangKy_api.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutterhoasen/components/rounded_button.dart';
 import 'package:flutterhoasen/notifiel/DangKyNotifiel.dart';
 import 'package:provider/provider.dart';
 import 'package:flutterhoasen/model/DangKy.dart';
-import 'formDangKy.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 final _firestore = FirebaseFirestore.instance;
 
 class RegisDetailPage extends StatelessWidget {
+  AudioCache audioCache = AudioCache();
   @override
   Widget build(BuildContext context) {
     DangKyNotifier dangKyNotifier = Provider.of<DangKyNotifier>(context);
@@ -97,7 +97,8 @@ class RegisDetailPage extends StatelessWidget {
                               });
                             });
                           });
-
+                          audioCache.load('wrong.mp3');
+                          audioCache.play('wrong.mp3');
                           Navigator.pop(context);
                         }),
                   ),

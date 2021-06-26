@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'login_screen.dart';
 import 'registration_screen.dart';
 import 'package:flutterhoasen/components/rounded_button.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
+
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
@@ -14,7 +16,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation animation;
-
+  AudioCache audioCache = AudioCache();
   @override
   void initState() {
     super.initState();
@@ -73,6 +75,8 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               title: 'Đăng nhập',
               colour: Colors.lightBlueAccent,
               onPressed: () {
+                audioCache.load('crash.mp3');
+                audioCache.play('crash.mp3');
                 Navigator.pushNamed(context, LoginScreen.id);
               },
             ),
@@ -80,6 +84,8 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               title: 'Đăng ký',
               colour: Colors.blueAccent,
               onPressed: () {
+                audioCache.load('crash.mp3');
+                audioCache.play('crash.mp3');
                 Navigator.pushNamed(context, RegistrationScreen.id);
               },
             ),

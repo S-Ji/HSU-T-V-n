@@ -7,6 +7,7 @@ import 'package:flutterhoasen/screens/dangky_page.dart';
 import 'package:flutterhoasen/notifiel/DangKyNotifiel.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 final _firestore = FirebaseFirestore.instance;
 User loggedInUser;
@@ -18,6 +19,7 @@ class FormDangKyPage extends StatefulWidget {
 }
 
 class _FormDangKyPageState extends State<FormDangKyPage> {
+  AudioCache audioCache = AudioCache();
   final _auth = FirebaseAuth.instance;
   final nameTextController = TextEditingController();
   final diachiTextController = TextEditingController();
@@ -167,6 +169,8 @@ class _FormDangKyPageState extends State<FormDangKyPage> {
                   title: 'Xác nhận',
                   colour: Colors.lightBlueAccent,
                   onPressed: () {
+                    audioCache.load('crash.mp3');
+                    audioCache.play('crash.mp3');
                     if (!_formKey.currentState.validate()) {
                       return;
                     } else {
@@ -193,6 +197,8 @@ class _FormDangKyPageState extends State<FormDangKyPage> {
                   title: 'Danh sách đăng ký',
                   colour: Colors.blueAccent,
                   onPressed: () {
+                    audioCache.load('crash.mp3');
+                    audioCache.play('crash.mp3');
                     Navigator.pushNamed(context, DangKyPage.id);
                   },
                 ),
